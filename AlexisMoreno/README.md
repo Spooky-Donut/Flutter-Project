@@ -27,7 +27,7 @@ Debido a esta problemática han surgido múltiples soluciones que integran el mo
 
 # Prototipo
 
-Enlace al [prototipo Figma](https://www.figma.com/proto/tuSkHcAfMcPV2gmbJxGlqd/M%C3%B3vil?page-id=0%3A1&node-id=1-3216&p=f&viewport=532%2C230%2C0.51&t=9v9rngFO943F0bTn-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3216&show-proto-sidebar=1)
+Enlace al [prototipo Figma](https://www.figma.com/proto/tuSkHcAfMcPV2gmbJxGlqd/M%C3%B3vil?node-id=1-3216&p=f&t=iWBpvjDrX0m7x0gm-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A3216&show-proto-sidebar=1)
 
 | Login                        | Dashboard                                      | Clase                                |
 | ---------------------------- | ---------------------------------------------- | ------------------------------------ |
