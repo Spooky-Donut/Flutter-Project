@@ -8,22 +8,22 @@ Se propone una sola aplicación para profesores y estudiantes, en la cual al ini
 
 Enlace al [prototipo Figma](https://www.figma.com/proto/uQ2TtKoZOo1ELxeL2dw4DX/Propuesta-de-proyecto?node-id=2-6&p=f&t=Ug1qyR01hZNWZUs8-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A6&show-proto-sidebar=1)
 
-| Inicio                                      | Login                                     | Dashboard profesor                                        |
-| ------------------------------------------- | ----------------------------------------- | --------------------------------------------------------- |
-| ![Pantalla inicio](MariaOrdonez/inicio.png) | ![Pantalla login](MariaOrdonez/login.png) | ![Pantalla Dashboard profesor](MariaOrdonez/profesor.png) |
+| Inicio                                                     | Login                                                    | Dashboard profesor                                                       |
+| ---------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------ |
+| ![Pantalla inicio](Documentacion/MariaOrdonez//inicio.png) | ![Pantalla login](Documentacion/MariaOrdonez//login.png) | ![Pantalla Dashboard profesor](Documentacion/MariaOrdonez//profesor.png) |
 
-| Crear curso                                           | Curso                                       | Crear evaluación                                                |
-| ----------------------------------------------------- | ------------------------------------------- | --------------------------------------------------------------- |
-| ![Pantalla crear curso](MariaOrdonez/crear_curso.png) | ![Pantalla curso](MariaOrdonez/curso-p.png) | ![Pantalla crear evaluacion](MariaOrdonez/crear_evaluacion.png) |
+| Crear curso                                                          | Curso                                                      | Crear evaluación                                                               |
+| -------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| ![Pantalla crear curso](Documentacion/MariaOrdonez//crear_curso.png) | ![Pantalla curso](Documentacion/MariaOrdonez//curso-p.png) | ![Pantalla crear evaluacion](Documentacion/MariaOrdonez//crear_evaluacion.png) |
 
-| Detalle materia                                                 | Resultado estudiantes                                                    | Resultado grupos                                               |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| ![Pantalla detalle materia](MariaOrdonez/detalle_materia-p.png) | ![Pantalla resultado estudiante](MariaOrdonez/resultado_estudiantes.png) | ![Pantalla resultado grupos](MariaOrdonez/resultado_grupo.png) |
+| Detalle materia                                                                | Resultado estudiantes                                                                   | Resultado grupos                                                              |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ![Pantalla detalle materia](Documentacion/MariaOrdonez//detalle_materia-p.png) | ![Pantalla resultado estudiante](Documentacion/MariaOrdonez//resultado_estudiantes.png) | ![Pantalla resultado grupos](Documentacion/MariaOrdonez//resultado_grupo.png) |
 
-| Detalle grupo                                               | Dashboard estudiante                                          | curso                                       |
-| ----------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------- |
-| ![Pantalla detalle grupo](MariaOrdonez/detalle_grupo-p.png) | ![Pantalla Dashboard estudiante](MariaOrdonez/estudiante.png) | ![Pantalla curso](MariaOrdonez/curso-e.png) |
+| Detalle grupo                                                              | Dashboard estudiante                                                         | curso                                                      |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Pantalla detalle grupo](Documentacion/MariaOrdonez//detalle_grupo-p.png) | ![Pantalla Dashboard estudiante](Documentacion/MariaOrdonez//estudiante.png) | ![Pantalla curso](Documentacion/MariaOrdonez//curso-e.png) |
 
-| Grupo                                       | Calificar                                         | Resultados                                        |
-| ------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| ![Pantalla grupo](MariaOrdonez/grupo-e.png) | ![Pantalla calificar](MariaOrdonez/calificar.png) | ![Pantalla resultado](MariaOrdonez/resultado.png) |
+| Grupo                                                      | Calificar                                                        | Resultados                                                       |
+| ---------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| ![Pantalla grupo](Documentacion/MariaOrdonez//grupo-e.png) | ![Pantalla calificar](Documentacion/MariaOrdonez//calificar.png) | ![Pantalla resultado](Documentacion/MariaOrdonez//resultado.png) |
