@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'ui/pages/login/login_page.dart';
 import 'ui/themes/app_theme.dart';
 
@@ -11,10 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Eva',
       theme: AppTheme.theme,
-      home: const LoginPage(title: 'Flutter Demo Home Page'),
+      home: LoginPage(title: 'Flutter Demo Home Page'),
     );
   }
 }

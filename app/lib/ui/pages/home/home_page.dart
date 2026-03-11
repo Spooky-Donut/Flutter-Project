@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.playlist_add_check_rounded,
-                        color: Colors.white,
+                        color: Color(0xFFE6E2DF),
                         size: 20,
                       ),
                     ),
@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   Text(
                     "Hola, ${user.name}",
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: Color(0xFFE6E2DF),
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
                     ),
@@ -86,8 +86,7 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       course['name'] as String,
@@ -118,7 +117,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                                 child: const Text(
                                   "Abrir",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(color: Color(0xFFE6E2DF)),
                                 ),
                               ),
                             ],
@@ -146,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         child: const Text(
                           "+ Crear curso",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Color(0xFFE6E2DF)),
                         ),
                       ),
                     ),

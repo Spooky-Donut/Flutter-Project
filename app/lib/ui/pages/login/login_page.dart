@@ -1,53 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../data/mock/mock_users.dart';
-import '../../widgets/top_curve_clipper.dart';
-import '../home/home_page.dart';
-import '../../../domain/models/app_user.dart';
+import 'package:get/get.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
+import 'login_controller.dart';
+import '../../widgets/top_curve_clipper.dart';
+
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key, required this.title});
+
   final String title;
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _userController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  void _onLoginPressed() {
-    //Lógica de Login
-    final email = _userController.text.trim();
-    final password = _passwordController.text.trim();
-
-    AppUser? foundUser;
-
-    for (final user in mockUsers) {
-      if (user.email == email && user.password == password) {
-        foundUser = user;
-        break;
-      }
-    }
-
-    if (foundUser != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (_) => HomeScreen(user: foundUser!)),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Usuario o contraseña incorrectos')),
-      );
-    }
-  }
-
-  @override
-  void dispose() {
-    _userController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +17,8 @@ class _LoginPageState extends State<LoginPage> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
-          //Curva decorativa superior
           children: [
+            // Curva decorativa superior
             ClipPath(
               clipper: TopCurveClipper(),
               child: Container(
@@ -65,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
 
-            //Formulario de login
+            // Formulario
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(vertical: 20),
@@ -81,7 +43,10 @@ class _LoginPageState extends State<LoginPage> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+
                         const SizedBox(height: 50),
+
+                        // Usuario
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -92,9 +57,11 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+
                             const SizedBox(height: 10),
+
                             TextFormField(
-                              controller: _userController,
+                              controller: controller.userController,
                               decoration: InputDecoration(
                                 hintText: 'correo institucional',
                                 filled: true,
@@ -107,7 +74,10 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ],
                         ),
+
                         const SizedBox(height: 30),
+
+                        // Contraseña
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -118,9 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+
                             const SizedBox(height: 10),
+
                             TextFormField(
-                              controller: _passwordController,
+                              controller: controller.passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
                                 hintText: 'contraseña',
@@ -132,10 +104,12 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
+
                             const SizedBox(height: 40),
+
                             Center(
                               child: ElevatedButton(
-                                onPressed: _onLoginPressed,
+                                onPressed: controller.login,
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF4c3f6d),
                                   shape: RoundedRectangleBorder(
@@ -151,6 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
+
                             const SizedBox(height: 20),
                           ],
                         ),
