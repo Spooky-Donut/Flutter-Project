@@ -1,0 +1,14 @@
+import 'package:get/get.dart';
+import '../teacher/create_course.dart';
+
+class HomeController extends GetxController {
+  var courses = [
+    {'name': 'Programación Móvil', 'activities': 3},
+    {'name': 'Compiladores', 'activities': 0},
+    {'name': 'Proyecto Final', 'activities': 2},
+  ].obs;
+
+  void abrirCrearCurso() {
+    Get.dialog(const CrearCursoDialog());
+  }
+}

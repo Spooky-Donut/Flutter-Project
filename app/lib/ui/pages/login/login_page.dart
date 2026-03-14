@@ -19,12 +19,28 @@ class LoginPage extends StatelessWidget {
         child: Column(
           children: [
             // Curva decorativa superior
-            ClipPath(
-              clipper: TopCurveClipper(),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.3,
-                color: const Color(0xFF4c3f6d),
-              ),
+            Stack(
+              children: [
+                ClipPath(
+                  clipper: TopCurveClipper(),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    color: const Color(0xFF4c3f6d),
+                  ),
+                ),
+                //Logo encima de la curva decorativa
+                Positioned(
+                  top: 40,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: Image.asset(
+                      "assets/logo_con_circulo.png",
+                      height: MediaQuery.of(context).size.height * 0.15,
+                    ),
+                  ),
+                ),
+              ],
             ),
 
             // Formulario
@@ -65,10 +81,12 @@ class LoginPage extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'correo institucional',
                                 filled: true,
-                                fillColor: const Color(0xFFE6E2DF),
+                                fillColor: const Color(0xFFFFFFFF),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none,
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF4c3f6d),
+                                  ),
                                 ),
                               ),
                             ),
@@ -97,10 +115,12 @@ class LoginPage extends StatelessWidget {
                               decoration: InputDecoration(
                                 hintText: 'contraseña',
                                 filled: true,
-                                fillColor: const Color(0xFFE6E2DF),
+                                fillColor: const Color(0xFFFFFFFF),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none,
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFF4c3f6d),
+                                  ),
                                 ),
                               ),
                             ),
@@ -125,8 +145,6 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-
-                            const SizedBox(height: 20),
                           ],
                         ),
                       ],

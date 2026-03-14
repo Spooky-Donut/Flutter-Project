@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import '../../../domain/models/app_user.dart';
-import 'create_course.dart';
+import 'package:get/get.dart';
+import 'home_controller.dart';
 
 // Pantalla principal
 class HomeScreen extends StatelessWidget {
   final AppUser user;
   // Constructor
-  const HomeScreen({super.key, required this.user});
+  HomeScreen({super.key, required this.user});
+
+  final HomeController controller = Get.put(HomeController());
 
   bool get isTeacher => user.role == UserRole.teacher;
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-
-    // Lista de prueba
-    final courses = [
-      {'name': 'Programación Móvil', 'activities': 3},
-      {'name': 'Compiladores', 'activities': 0},
-      {'name': 'Proyecto Final', 'activities': 2},
-    ];
 
     return Scaffold(
       backgroundColor: const Color(0xFF4c3f6d),
@@ -29,36 +25,30 @@ class HomeScreen extends StatelessWidget {
             // Encabezado superior morado
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 28),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
               decoration: const BoxDecoration(color: Color(0xFF4C3F6D)),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 12),
-                  // Icono en la parte superior derecha
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF7C6A9F),
-                        borderRadius: BorderRadius.circular(10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 40),
+                      Text(
+                        "Hola, ${user.name}",
+                        style: const TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      child: const Icon(
-                        Icons.playlist_add_check_rounded,
-                        color: Color(0xFFE6E2DF),
-                        size: 20,
-                      ),
-                    ),
+                    ],
                   ),
-                  const SizedBox(height: 18),
-                  Text(
-                    "Hola, ${user.name}",
-                    style: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  // Logo en la parte superior derecha
+                  Image.asset(
+                    "assets/logo_sin_fondo.png",
+                    height: MediaQuery.of(context).size.height * 0.1,
                   ),
                 ],
               ),
@@ -75,74 +65,76 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: Stack(
                   children: [
-                    ListView.builder(
-                      padding: const EdgeInsets.fromLTRB(18, 24, 18, 100),
-                      itemCount: courses.length,
-                      itemBuilder: (context, index) {
-                        // Curso actual que se esta pintando en la lista
-                        final course = courses[index];
+                    Obx(
+                      () => ListView.builder(
+                        padding: const EdgeInsets.fromLTRB(18, 24, 18, 100),
+                        itemCount: controller.courses.length,
+                        itemBuilder: (context, index) {
+                          // Curso actual que se esta pintando en la lista
+                          final course = controller.courses[index];
 
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
-                          child: Container(
-                            width: screenWidth * 0.9,
-                            height: screenWidth * 0.25,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 18,
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(18),
-                              border: Border.all(
-                                color: Color(0xFF7C6A9F),
-                                width: 2,
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Container(
+                              width: screenWidth * 0.9,
+                              height: screenWidth * 0.25,
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 18,
                               ),
-                            ),
-
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Image.network(
-                                    "https://picsum.photos/500/500",
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFFFFFF),
+                                borderRadius: BorderRadius.circular(18),
+                                border: Border.all(
+                                  color: Color(0xFF7C6A9F),
+                                  width: 2,
                                 ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 16),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          course['name'] as String,
-                                          style: const TextStyle(
-                                            color: Color(0xFF4C3F6D),
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          "${course['activities']} actividades",
-                                          style: const TextStyle(
-                                            color: Colors.black54,
-                                            fontSize: 13,
-                                          ),
-                                        ),
-                                      ],
+                              ),
+
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Image.network(
+                                      "https://picsum.photos/500/500",
+                                      width: double.infinity,
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Expanded(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 16),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            course['name'] as String,
+                                            style: const TextStyle(
+                                              color: Color(0xFF4C3F6D),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            "${course['activities']} actividades",
+                                            style: const TextStyle(
+                                              color: Colors.black54,
+                                              fontSize: 13,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                     // Boton para crear curso, solo profesores
                     if (isTeacher)
@@ -150,9 +142,7 @@ class HomeScreen extends StatelessWidget {
                         right: 18,
                         bottom: 18,
                         child: ElevatedButton(
-                          onPressed: () {
-                            mostrarCrearCurso(context);
-                          },
+                          onPressed: controller.abrirCrearCurso,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4C3F6D),
                             shape: RoundedRectangleBorder(
@@ -165,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           child: const Text(
                             "+ Crear curso",
-                            style: TextStyle(color: Color(0xFFE6E2DF)),
+                            style: TextStyle(color: Color(0xFFFFFFFF)),
                           ),
                         ),
                       ),
